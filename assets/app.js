@@ -1,4 +1,17 @@
 import './bootstrap.js';
+
+console.log('HELLO WORLD');
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".menu-icon").addEventListener("click", function () {
+        const navUl = document.querySelector("nav ul");
+        if (navUl.classList.contains("showing")) {
+            navUl.classList.remove("showing");
+        } else {
+            navUl.classList.add("showing");
+        }
+    });
+});
 /*
  * Welcome to your app's main JavaScript file!
  *
