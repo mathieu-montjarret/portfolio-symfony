@@ -1,3 +1,215 @@
-body {
-    background-color: skyblue;
+/*      Navbar design      */
+
+.logo {
+    top: 15px;
+    left: 30px;
+    position: fixed;
+    float: left;
+    color: black;
+    text-shadow: 1px 1px white;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
+
+nav {
+    position: fixed;
+    width: 100%;
+    line-height: 60px;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+nav ul {
+    line-height: 60px;
+    list-style-type: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    padding-right: 40px;
+    transition: 1s;
+}
+
+nav.black ul {
+    background: #000;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 16px 40px;
+    ;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px #fff;
+    font-size: 16px;
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background: #000;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+.space-top {
+    margin-top: 92px;
+}
+
+@media(max-width: 1050px) {
+
+    .logo {
+        position: fixed;
+        top: 12px;
+        left: 30px;
+    }
+
+    nav ul {
+        max-height: 0px;
+        height: 100vh;
+        background: #000;
+        padding: 0px;
+    }
+
+    .showing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        text-align: center;
+        max-height: 90vh;
+    }
+
+    nav ul li {
+        width: 100vw;
+    }
+
+    .menu-icon {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}
+
+/*      Hero carousel      */
+
+.carousel-item {
+    height: 100vh;
+}
+
+.home-s {
+    background-size: cover;
+    background-position: center;
+}
+
+.main-photography-1 {
+    background-image: url('../img/landscape1.jpg');
+}
+
+.main-photography-2 {
+    background-image: url('../img/landscape2.jpg');
+}
+
+.main-photography-3 {
+    background-image: url('../img/landscape3.jpg');
+}
+
+.main-photography-4 {
+    background-image: url('../img/landscape4.jpg');
+}
+
+.main-photography-5 {
+    background-image: url('../img/landscape5.jpg');
+}
+
+.main-photography-6 {
+    background-image: url('../img/landscape6.jpg');
+}
+
+.carousel-item img {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+    text-shadow: 0.5px 0.5px black;
+}
+
+/*      Gallery      */
+
+.gallery-theme {
+    color: black;
+    text-decoration: none;
+}
+
+.gallery-s {
+    height: 400px;
+}
+
+.gallery-i {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+/*     Themes      */
+
+/* Create four equal columns that sits next to each other */
+/* .part-g {
+      max-width: 33.3%;
+      padding: 0 4px;
+    }*/
+
+.theme {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    filter: grayscale(1) brightness(0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.theme:hover {
+    filter: grayscale(0);
+}
+
+/*
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    } 
+    
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+      .column img {
+        filter: grayscale(0) brightness(1);
+      }
+    } */
+
+/* .ligne{
+      height: 100vh;
+    } */
