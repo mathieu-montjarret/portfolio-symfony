@@ -9,8 +9,25 @@
     <h1 class="font-weight-light text-center">Galerie</h1><br>
 
     <div class="row text-center text-lg-left">
+
+{% for gallery in galleries %}
+            {% if gallery.photos|length > 0 %}
+                <div class="col-lg-4 col-md-6 col-12 gallery-s my-2">
+                    {% set firstPhoto = gallery.photos.first %}
+                    <a href="{{ path('gallery_show', {'name': gallery.name|url_encode}) }}" class="mb-4 h-100 w-100">
+                        <div class="w-100 gallery-i d-flex align-items-center justify-content-center position-relative" style="background-image: url('{{ asset(photoDirectory ~ '/' ~ firstPhoto.photo ~ firstPhoto.extension) }}')">
+                            <p class="position-absolute gallery-theme text-white text-center m-0">{{ gallery.name }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
+
+
 {# 
-        {% for data in gallery %}
+        {% for data in gallery %} 
             <div class="col-lg-4 col-md-6 col-12 gallery-s my-2">
                 <a href="{{ path( 'theme', {'url': data.url }) }}" class="mb-4 h-100 w-100">
                     <div class="w-100 gallery-i d-flex align-items-center justify-content-center" style="background-image: url('../../gallery-folder/{{ data.photo }}')">

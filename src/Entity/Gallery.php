@@ -16,25 +16,25 @@ class Gallery
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private ?string $name = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $PublishedAt = null;
+    private ?\DateTimeImmutable $publishedAt = null;
 
     #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: 'Gallery')]
     private Collection $photos;
 
     #[ORM\ManyToMany(targetEntity: Service::class, inversedBy: 'galleries')]
-    private Collection $Services;
+    private Collection $services;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'galleries')]
-    private Collection $Users;
+    private Collection $users;
 
     public function __construct()
     {
         $this->photos = new ArrayCollection();
-        $this->Services = new ArrayCollection();
-        $this->Users = new ArrayCollection();
+        $this->services = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,24 +44,24 @@ class Gallery
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $name): static
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getPublishedAt(): ?\DateTimeImmutable
     {
-        return $this->PublishedAt;
+        return $this->publishedAt;
     }
 
-    public function setPublishedAt(\DateTimeImmutable $PublishedAt): static
+    public function setPublishedAt(\DateTimeImmutable $publishedAt): static
     {
-        $this->PublishedAt = $PublishedAt;
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }
@@ -101,13 +101,13 @@ class Gallery
      */
     public function getServices(): Collection
     {
-        return $this->Services;
+        return $this->services;
     }
 
     public function addService(Service $service): static
     {
-        if (!$this->Services->contains($service)) {
-            $this->Services->add($service);
+        if (!$this->services->contains($service)) {
+            $this->services->add($service);
         }
 
         return $this;
@@ -115,7 +115,7 @@ class Gallery
 
     public function removeService(Service $service): static
     {
-        $this->Services->removeElement($service);
+        $this->services->removeElement($service);
 
         return $this;
     }
@@ -125,13 +125,13 @@ class Gallery
      */
     public function getUsers(): Collection
     {
-        return $this->Users;
+        return $this->users;
     }
 
     public function addUser(User $user): static
     {
-        if (!$this->Users->contains($user)) {
-            $this->Users->add($user);
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
         }
 
         return $this;
@@ -139,7 +139,7 @@ class Gallery
 
     public function removeUser(User $user): static
     {
-        $this->Users->removeElement($user);
+        $this->users->removeElement($user);
 
         return $this;
     }

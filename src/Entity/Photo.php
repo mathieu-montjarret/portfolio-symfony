@@ -14,16 +14,16 @@ class Photo
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Photo = null;
+    private ?string $photo = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Extension = null;
+    private ?string $extension = null;
 
     #[ORM\Column]
-    private ?int $Placement = null;
+    private ?int $placement = null;
 
     #[ORM\ManyToOne(inversedBy: 'photos')]
     private ?Gallery $Gallery = null;
@@ -35,48 +35,48 @@ class Photo
 
     public function getPhoto(): ?string
     {
-        return $this->Photo;
+        return $this->photo;
     }
 
-    public function setPhoto(string $Photo): static
+    public function setPhoto(string $photo): static
     {
-        $this->Photo = $Photo;
+        $this->photo = $photo;
 
         return $this;
     }
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): static
+    public function setTitle(string $title): static
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getExtension(): ?string
     {
-        return $this->Extension;
+        return $this->extension;
     }
 
-    public function setExtension(string $Extension): static
+    public function setExtension(string $extension): static
     {
-        $this->Extension = $Extension;
+        $this->extension = $extension;
 
         return $this;
     }
 
     public function getPlacement(): ?int
     {
-        return $this->Placement;
+        return $this->placement;
     }
 
-    public function setPlacement(int $Placement): static
+    public function setPlacement(int $placement): static
     {
-        $this->Placement = $Placement;
+        $this->placement = $placement;
 
         return $this;
     }
