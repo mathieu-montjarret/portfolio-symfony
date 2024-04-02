@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArtbyCaro | {{ gallery.name }}{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center space-top">{{ gallery.name }}</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for photo in photos|filter(photo => photo.placement == 1) %}
+            <div class="col-lg-4 col-md-6">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+            </div>
+        {% endfor %}
+
+        {% for photo in photos|filter(photo => photo.placement == 2) %}
+            <div class="col-lg-4 col-md-6">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+            </div>
+        {% endfor %}
+
+        {% for photo in photos|filter(photo => photo.placement == 3) %}
+            <div class="col-lg-4 col-md-6">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
