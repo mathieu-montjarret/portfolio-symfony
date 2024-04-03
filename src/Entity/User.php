@@ -59,6 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->CreatedAt = new \DateTimeImmutable();
         $this->galleries = new ArrayCollection();
+        $this->roles = ['ROLE_USER'];
     }
 
     public function getId(): ?int
