@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Art By Caro | Photographie
 			{% endblock %}
@@ -36,7 +37,11 @@
 						<li><a href="{{path('app_service')}}">Prestations</a></li>
 						<li><a href="{{path('app_guestbook')}}">Livre d'or</a></li>
 						<li><a href="{{path('app_contact')}}">Contact</a></li>
-
+						{% if app.user %}
+							<li><a href="{{path('app_logout')}}">Déconnexion</a></li>
+						{% else %}
+							<li><a href="{{path('app_login')}}">Connexion</a> / <a href="{{path('app_registration')}}">Inscription</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			</nav>

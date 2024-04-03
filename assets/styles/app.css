@@ -191,7 +191,7 @@ nav ul li a {
     filter: grayscale(0);
 }
 
-/*
+
     @media screen and (max-width: 800px) {
       .column {
         flex: 50%;
@@ -200,7 +200,7 @@ nav ul li a {
     } 
     
     /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-/* @media screen and (max-width: 600px) {
+ @media screen and (max-width: 600px) {
       .column {
         flex: 100%;
         max-width: 100%;
@@ -208,8 +208,4 @@ nav ul li a {
       .column img {
         filter: grayscale(0) brightness(1);
       }
-    } */
-
-/* .ligne{
-      height: 100vh;
-    } */
+    } 
