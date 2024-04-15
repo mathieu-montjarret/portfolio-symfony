@@ -14,16 +14,16 @@ class Comment
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private string $Name;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Description = null;
+    private string $Description;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $CreatedAt = null;
+    private \DateTimeImmutable $CreatedAt;
 
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'Comment')]
     private Collection $users;
@@ -33,12 +33,12 @@ class Comment
         $this->users = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->Name;
     }
@@ -50,7 +50,7 @@ class Comment
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string
     {
         return $this->Description;
     }
@@ -62,7 +62,7 @@ class Comment
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->CreatedAt;
     }
@@ -102,5 +102,11 @@ class Comment
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        // Return the Name or Description, choose whichever makes more sense for your application
+        return $this->Name; // or return $this->Description;
     }
 }

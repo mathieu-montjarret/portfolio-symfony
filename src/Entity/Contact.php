@@ -12,32 +12,32 @@ class Contact
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $Firstname = null;
+    private string $Firstname;
 
     #[ORM\Column(length: 255)]
-    private ?string $Lastname = null;
+    private string $Lastname;
 
     #[ORM\Column(length: 255)]
-    private ?string $Email = null;
+    private string $Email;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Phone = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Subject = null;
+    private string $Subject;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Message = null;
+    private string $Message;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstname(): string
     {
         return $this->Firstname;
     }
@@ -49,7 +49,7 @@ class Contact
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getLastname(): string
     {
         return $this->Lastname;
     }
@@ -61,7 +61,7 @@ class Contact
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->Email;
     }
@@ -85,7 +85,7 @@ class Contact
         return $this;
     }
 
-    public function getSubject(): ?string
+    public function getSubject(): string
     {
         return $this->Subject;
     }
@@ -97,7 +97,7 @@ class Contact
         return $this;
     }
 
-    public function getMessage(): ?string
+    public function getMessage(): string
     {
         return $this->Message;
     }

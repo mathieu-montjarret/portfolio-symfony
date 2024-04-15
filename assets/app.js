@@ -12,6 +12,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+// Fonction à exécuter quand la fenêtre est défilée
+function onScroll() {
+    // Récupérer l'élément 'nav'
+    var nav = document.querySelector('nav');
+
+    // Vérifier si le défilement a dépassé le sommet de la page
+    if (window.scrollY > 0) {
+        // Ajouter la classe 'black' si l'utilisateur a défilé
+        nav.classList.add('black');
+    } else {
+        // Supprimer la classe 'black' si l'utilisateur est au sommet de la page
+        nav.classList.remove('black');
+    }
+}
+
+// Ajouter l'événement de défilement à la fenêtre
+window.addEventListener('scroll', onScroll);
+
+
 /*
  * Welcome to your app's main JavaScript file!
  *
