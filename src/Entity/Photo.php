@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PhotoRepository;
+
 
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
 class Photo
@@ -11,29 +12,28 @@ class Photo
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $photo = null;
+    private string $photo;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $extension = null;
+    private string $title;
 
     #[ORM\Column]
-    private ?int $placement = null;
+    private int $placement;
 
     #[ORM\ManyToOne(inversedBy: 'photos')]
-    private ?Gallery $Gallery = null;
+    private Gallery $gallery;
 
-    public function getId(): ?int
+
+
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getPhoto(): ?string
+    public function getPhoto(): string
     {
         return $this->photo;
     }
@@ -45,7 +45,7 @@ class Photo
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -57,19 +57,7 @@ class Photo
         return $this;
     }
 
-    public function getExtension(): ?string
-    {
-        return $this->extension;
-    }
-
-    public function setExtension(string $extension): static
-    {
-        $this->extension = $extension;
-
-        return $this;
-    }
-
-    public function getPlacement(): ?int
+    public function getPlacement(): int
     {
         return $this->placement;
     }
@@ -81,14 +69,14 @@ class Photo
         return $this;
     }
 
-    public function getGallery(): ?Gallery
+    public function getGallery(): Gallery
     {
-        return $this->Gallery;
+        return $this->gallery;
     }
 
     public function setGallery(?Gallery $Gallery): static
     {
-        $this->Gallery = $Gallery;
+        $this->gallery = $Gallery;
 
         return $this;
     }

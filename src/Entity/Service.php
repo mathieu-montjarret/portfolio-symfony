@@ -17,15 +17,15 @@ class Service
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Information = null;
+    private ?string $information = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $Price = null;
+    private ?string $price = null;
 
-    #[ORM\ManyToMany(targetEntity: Gallery::class, mappedBy: 'Services')]
+    #[ORM\ManyToMany(targetEntity: Gallery::class, mappedBy: 'services')]
     private Collection $galleries;
 
     public function __construct()
@@ -40,36 +40,36 @@ class Service
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): static
+    public function setTitle(string $title): static
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getInformation(): ?string
     {
-        return $this->Information;
+        return $this->information;
     }
 
-    public function setInformation(string $Information): static
+    public function setInformation(string $information): static
     {
-        $this->Information = $Information;
+        $this->information = $information;
 
         return $this;
     }
 
     public function getPrice(): ?string
     {
-        return $this->Price;
+        return $this->price;
     }
 
-    public function setPrice(string $Price): static
+    public function setPrice(string $price): static
     {
-        $this->Price = $Price;
+        $this->price = $price;
 
         return $this;
     }
@@ -99,5 +99,10 @@ class Service
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->title; // Retournez le nom du service ou toute autre propriété appropriée.
     }
 }

@@ -17,10 +17,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 180)]
-    private ?string $Email = null;
+    private string $Email;
 
     /**
      * @var list<string> The user roles
@@ -32,19 +32,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    private ?string $password = null;
+    private string $password;
 
     #[ORM\Column(length: 255)]
-    private ?string $Firstname = null;
+    private string $Firstname;
 
     #[ORM\Column(length: 255)]
-    private ?string $Lastname = null;
+    private string $Lastname;
 
     #[ORM\Column(length: 255)]
-    private ?string $Username = null;
+    private string $Username;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $CreatedAt = null;
+    private \DateTimeImmutable $CreatedAt;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $UpdatedAt = null;
@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Comment $Comment = null;
 
-    #[ORM\ManyToMany(targetEntity: Gallery::class, mappedBy: 'Users')]
+    #[ORM\ManyToMany(targetEntity: Gallery::class, mappedBy: 'users')]
     private Collection $galleries;
 
     public function __construct()
@@ -62,12 +62,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->roles = ['ROLE_USER'];
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->Email;
     }
@@ -137,7 +137,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstname(): string
     {
         return $this->Firstname;
     }
@@ -149,7 +149,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getLastname(): string
     {
         return $this->Lastname;
     }
@@ -161,7 +161,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUsername(): ?string
+    public function getUsername(): string
     {
         return $this->Username;
     }
@@ -173,7 +173,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->CreatedAt;
     }

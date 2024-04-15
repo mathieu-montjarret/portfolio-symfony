@@ -10,19 +10,19 @@
     <div class="row">
         {% for photo in photos|filter(photo => photo.placement == 1) %}
             <div class="col-lg-4 col-md-6">
-                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
             </div>
         {% endfor %}
 
         {% for photo in photos|filter(photo => photo.placement == 2) %}
             <div class="col-lg-4 col-md-6">
-                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
             </div>
         {% endfor %}
 
         {% for photo in photos|filter(photo => photo.placement == 3) %}
             <div class="col-lg-4 col-md-6">
-                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo ~ photo.extension) }}" class="theme" alt="{{ photo.title }}">
+                <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
             </div>
         {% endfor %}
     </div>
