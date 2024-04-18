@@ -1,16 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ArtbyCaro | Présentation{% endblock %}
+{% block title %}ArtbyCaro | Presentation{% endblock %}
 
 {% block body %}
 
-<div class="container space-top">
+<div class="container">
 
-    <h1 class="font-weight-light text-center">Présentation</h1><br>
+     <h1 class="font-weight-light text-center space-top">Presentation</h1>
 
-    <div class="row text-center text-lg-left">
-
-      
+    <div class="row mt-5 align-items-center">
+        <div class="col-lg-6 my-3">
+            <img src="{{ asset('img/presentation.jpg') }}" class="img-fluid rounded-circle" alt="Portrait">
+        </div>
+        <div class="col-lg-6 my-3 d-flex flex-column justify-content-center">
+            <div>
+                <h2 class="font-weight-normal">I'm [Your Name], a Weaver of Visual Stories.</h2>
+                <p class="mt-4">Based in [Your City], I specialize in lifestyle and portrait photography with an approach that blends aesthetic elegance with genuine narratives. My lens is an extension of my eye, always seeking the unspoken stories in everyday moments.</p>
+                <ul class="list-unstyled">
+                    <li><strong>Experience:</strong> A decade's journey through the camera's eye</li>
+                    <li><strong>Specializations:</strong> Lifestyle encapsulations, emotive portraits, weddings that whisper tales, and landscapes that speak volumes</li>
+                    <li><strong>Philosophy:</strong> Every frame a painting, every shot a living story</li>
+                    <li><strong>Clients:</strong> Individuals and families seeking to immortalize moments, brands with a tale to tell, and anyone in love with the art of photography</li>
+                    <li><strong>Features:</strong> Published in [notable magazines or websites], collaborations with international art collectives</li>
+                    <li><strong>Mission:</strong> To capture the fleeting, to narrate the silent, to paint with light</li>
+                    <li><strong>Let's Connect:</strong> Whether it's your grand event or a quiet slice of life, let's make it timeless together.</li>
+                    <a href="{{ path('app_contact') }}" class="btn btn-primary mt-4">Contact Me</a>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
