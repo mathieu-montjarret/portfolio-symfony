@@ -4,13 +4,60 @@
 
 {% block body %}
 
+<!-- Conteneur pour le titre -->
 <div class="container space-top">
+    <h1 class="font-weight-light text-center mt-5">Contact</h1>
+</div>
 
-    <h1 class="font-weight-light text-center">Contact</h1><br>
+<!-- Image pleine largeur en tête de page -->
+<div class="gallery-s w-100 mt-5">
+    <div class="gallery-i" style="background-image: url('{{ asset('img/contact1.jpg') }}'); height: 400px;"></div>
+</div>
 
-    <div class="row text-center text-lg-left">
+<!-- Conteneur pour le contenu centré sous l'image -->
+<div class="container">
+    <!-- Texte d'introduction -->
+    <div class="text-center mt-5">
+        <p>Now that you've gotten to know me and my work a little bit, help me get to know you! The more details you give, the better I'll be able to help you create the wedding pictures of your dreams and make sure we are a good fit! Can't wait to meet you!</p>
+        <p>If you're looking for pricing info, start <a href="#pricing">here</a>.</p>
+    </div>
 
-      
+    <!-- Formulaire de contact généré par Symfony -->
+    {% for flash_message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ flash_message }}
+    </div>
+    {% endfor %}
+    {% for flash_message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ flash_message }}
+    </div>
+    {% endfor %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <!-- Carte Google Maps -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="map-container" style="height: 400px;">
+                <iframe src="https://www.google.com/maps?q=77+Rue+de+Charonne,+75011+Paris&output=embed" frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page avec informations -->
+    <div class="text-center mt-5">
+        <p>FOLLOW ME ON INSTAGRAM: @ashley.smith.photo</p>
+    </div>
+    
+    <!-- Inclusivité -->
+    <div class="text-center mt-5">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea repellendus at nostrum aut odit vero consequatur deserunt quisquam, deleniti nulla modi beatae esse molestiae sed enim explicabo eaque distinctio sint!</p>
     </div>
 </div>
 
