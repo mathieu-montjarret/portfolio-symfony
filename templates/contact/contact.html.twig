@@ -5,7 +5,14 @@
 {% block body %}
 
 <!-- Conteneur pour le titre -->
-<div class="container space-top">
+<div class="space-top">
+{% for flash_message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+</div>
+<div class="container">
     <h1 class="font-weight-light text-center mt-5">Contact</h1>
 </div>
 
@@ -23,16 +30,7 @@
     </div>
 
     <!-- Formulaire de contact généré par Symfony -->
-    {% for flash_message in app.flashes('success') %}
-    <div class="alert alert-success">
-        {{ flash_message }}
-    </div>
-    {% endfor %}
-    {% for flash_message in app.flashes('error') %}
-    <div class="alert alert-danger">
-        {{ flash_message }}
-    </div>
-    {% endfor %}
+    
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             {{ form_start(form) }}
