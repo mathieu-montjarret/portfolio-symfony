@@ -28,6 +28,9 @@ class Service
     #[ORM\ManyToMany(targetEntity: Gallery::class, mappedBy: 'services')]
     private Collection $galleries;
 
+    #[ORM\Column]
+    private ?int $duration = null;
+
     public function __construct()
     {
         $this->galleries = new ArrayCollection();
@@ -104,5 +107,17 @@ class Service
     public function __toString(): string
     {
         return $this->title; // Retournez le nom du service ou toute autre propriété appropriée.
+    }
+
+    public function getDuration(): ?int
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(int $duration): static
+    {
+        $this->duration = $duration;
+
+        return $this;
     }
 }
