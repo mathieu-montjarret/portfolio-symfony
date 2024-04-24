@@ -33,11 +33,11 @@ class PhotoCrudController extends AbstractCrudController
         ];
 
         // Ajout conditionnel du champ 'photo'
-        if ($pageName === Crud::PAGE_INDEX || $pageName === Crud::PAGE_NEW) {
+        if ($pageName === Crud::PAGE_INDEX || $pageName === Crud::PAGE_NEW || $pageName === Crud::PAGE_EDIT) {
             $fields[] = ImageField::new('photo')
                 ->setBasePath('/photoFolder')
                 ->setUploadDir('assets/photoFolder')
-                ->setUploadedFileNamePattern('[contenthash]-[year]-[month]-[day].[extension]');
+                ->setUploadedFileNamePattern('[slug]-[year]-[month]-[day].[extension]');
         }
         return $fields;
     }
