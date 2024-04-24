@@ -169,6 +169,15 @@ nav ul li a {
     height: 100%;
 }
 
+/*      Services    */
+
+.card-img-top {
+    height: 300px;
+    /* ou la hauteur que vous souhaitez */
+    object-fit: cover;
+    /* couvrir l'espace disponible sans perdre les proportions */
+}
+
 
 /*     Themes      */
 
@@ -193,20 +202,21 @@ nav ul li a {
 }
 
 
-    @media screen and (max-width: 800px) {
-      .column {
+@media screen and (max-width: 800px) {
+    .column {
         flex: 50%;
         max-width: 50%;
-      }
-    } 
-    
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
- @media screen and (max-width: 600px) {
-      .column {
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
         flex: 100%;
         max-width: 100%;
-      }
-      .column img {
+    }
+
+    .column img {
         filter: grayscale(0) brightness(1);
-      }
-    } 
+    }
+}

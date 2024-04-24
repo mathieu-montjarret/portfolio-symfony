@@ -1,7 +1,5 @@
 import './bootstrap.js';
 
-console.log('HELLO WORLD');
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".menu-icon").addEventListener("click", function () {
         const navUl = document.querySelector("nav ul");

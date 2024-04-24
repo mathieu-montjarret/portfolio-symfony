@@ -19,6 +19,9 @@ class Service
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(length: 255)]
+    private string $photo;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $information = null;
 
@@ -49,6 +52,18 @@ class Service
     public function setTitle(string $title): static
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getPhoto(): string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): static
+    {
+        $this->photo = $photo;
 
         return $this;
     }
