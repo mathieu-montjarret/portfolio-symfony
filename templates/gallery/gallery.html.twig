@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <h1 class="font-weight-light text-center space-top">Galerie</h1>
+    <h1 class="font-weight-light text-center space-top">Gallery</h1>
 
     <div class="row text-center mt-5">
 
@@ -14,7 +14,7 @@
             {% if gallery.photos|length > 0 %}
                 <div class="col-lg-4 col-md-6 col-12 gallery-s my-2">
                     {% set firstPhoto = gallery.photos.first %}
-                    <a href="{{ path('gallery_show', {'name': gallery.name|url_encode}) }}" class="mb-4 h-100 w-100">
+                    <a href="{{ path('gallery_show', {'slug': gallery.slug|url_encode}) }}" class="mb-4 h-100 w-100">
                         <div class="w-100 gallery-i d-flex align-items-center justify-content-center position-relative" style="background-image: url('{{ asset(photoDirectory ~ '/' ~ firstPhoto.photo) }}')">
                             <p class="position-absolute gallery-theme text-white text-center m-0">{{ gallery.name }}</p>
                         </div>

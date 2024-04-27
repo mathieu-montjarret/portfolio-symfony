@@ -33,16 +33,16 @@
 				</div>
 				<div class="menu">
 					<ul>
-						<li><a href="{{path('app_home')}}">Accueil</a></li>
-						<li><a href="{{path('app_gallery')}}">Galerie</a></li>
+						<li><a href="{{path('app_home')}}">Home</a></li>
+						<li><a href="{{path('app_gallery')}}">Gallery</a></li>
 						<li><a href="{{path('app_presentation')}}">Presentation</a></li>
-						<li><a href="{{path('app_service')}}">Prestations</a></li>
-						<li><a href="{{path('app_guestbook')}}">Livre d'or</a></li>
+						<li><a href="{{path('app_service')}}">Services</a></li>
+						<li><a href="{{path('app_guestbook')}}">Guestbook</a></li>
 						<li><a href="{{path('app_contact')}}">Contact</a></li>
 						{% if app.user %}
-							<li><a href="{{path('app_logout')}}">Déconnexion</a></li>
+							<li><a href="{{path('app_logout')}}">Log Out</a></li>
 						{% else %}
-							<li><a href="{{path('app_login')}}">Connexion</a> / <a href="{{path('app_registration')}}">Inscription</a></li>
+							<li><a href="{{path('app_login')}}">Log In</a> / <a href="{{path('app_registration')}}">Registration</a></li>
 						{% endif %}
 					</ul>
 				</div>

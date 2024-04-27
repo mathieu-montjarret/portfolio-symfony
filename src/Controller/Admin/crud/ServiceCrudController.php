@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\crud;
+namespace App\Controller\Admin\Crud;
 
 use App\Entity\Service;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -9,7 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -25,7 +25,11 @@ class ServiceCrudController extends AbstractCrudController
         $fields = [
             IdField::new('id')->hideOnIndex()->hideOnForm(),
             TextField::new('title'),
-            TextEditorField::new('information'),
+            TextareaField::new('information')
+                ->formatValue(function ($value) {
+                    // Retourner la valeur sans la modifier, donc tout le texte sera affiché.
+                    return $value;
+                }),
             MoneyField::new('price')
                 ->setCurrency('EUR')
                 ->setStoredAsCents(false),
