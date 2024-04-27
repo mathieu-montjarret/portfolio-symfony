@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\crud;
+namespace App\Controller\Admin\Crud;
 
 use App\Entity\Photo;
 use Doctrine\ORM\EntityManagerInterface;

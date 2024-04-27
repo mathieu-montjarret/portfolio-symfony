@@ -3,15 +3,44 @@
 {% block title %}ArtbyCaro | Livre d'or{% endblock %}
 
 {% block body %}
+<div class="space-top">
+    <h1 class="font-weight-light text-center my-5">Guestbook</h1>
 
-<div class="container space-top">
+    {% for comment in comments %}
+        <div class="container space-top">
+            <div class="{{ loop.index is odd ? 'row mb-4 justify-content-start' : 'row mb-4 justify-content-end' }}">
+                <div class="col-md-8 text-center">
+                    <div class="comment-meta mt-5">
+                        <span class="blockquote-sign">&ldquo;</span><br>
+                        <strong>{{ comment.Name }}</strong>
+                        <span class="text-muted">{{ comment.CreatedAt|date('d/m/Y') }}</span>
+                    </div>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">{{ comment.Description }}</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-0">
+            <div class="{{ loop.index is odd ? 'offset-md-8 col-md-4 px-0 mt-3' : 'col-md-4 px-0 mt-3' }}">
+                <hr class="mb-5">
+            </div>
+        </div>
+    {% endfor %}
 
-    <h1 class="font-weight-light text-center">Livre d'or</h1><br>
-
-    <div class="row text-center text-lg-left">
-
-      
+    {# Pagination #}
+    <div class="row">
+        <div class="col-12">
+            <div aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% for i in 1..lastPage %}
+                        <li class="page-item{% if currentPage == i %} active{% endif %}">
+                            <a class="page-link" href="{{ path('app_guestbook', {'page': i}) }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
-
 {% endblock %}

@@ -18,6 +18,9 @@ class Gallery
     #[ORM\Column(length: 255)]
     private string $name;
 
+    #[ORM\Column(length: 255)]
+    private string $slug;
+
     #[ORM\Column]
     private \DateTimeImmutable $publishedAt;
 
@@ -50,6 +53,18 @@ class Gallery
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->name = $slug;
 
         return $this;
     }

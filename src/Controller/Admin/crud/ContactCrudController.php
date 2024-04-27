@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\crud;
+namespace App\Controller\Admin\Crud;
 
 use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;

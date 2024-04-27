@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin\crud;
+namespace App\Controller\Admin\Crud;
 
 use App\Entity\Gallery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 
 class GalleryCrudController extends AbstractCrudController
 {
@@ -23,6 +24,8 @@ class GalleryCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name', 'Gallery Name'),
+            SlugField::new('slug', 'Gallery Slug')
+                ->setTargetFieldName('name'),
             DateTimeField::new('publishedAt', 'Published At')
                 ->setFormat('Y-MM-DD HH:mm:ss')
                 ->hideOnForm(),

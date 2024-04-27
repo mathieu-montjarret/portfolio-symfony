@@ -17,13 +17,13 @@ class Comment
     private int $id;
 
     #[ORM\Column(length: 255)]
-    private string $Name;
+    private string $name;
 
     #[ORM\Column(type: Types::TEXT)]
-    private string $Description;
+    private string $description;
 
     #[ORM\Column]
-    private \DateTimeImmutable $CreatedAt;
+    private \DateTimeImmutable $createdAt;
 
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'Comment')]
     private Collection $users;
@@ -40,36 +40,36 @@ class Comment
 
     public function getName(): string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $name): static
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getDescription(): string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): static
+    public function setDescription(string $description): static
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getCreatedAt(): \DateTimeImmutable
     {
-        return $this->CreatedAt;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $CreatedAt): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->CreatedAt = $CreatedAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -107,6 +107,6 @@ class Comment
     public function __toString(): string
     {
         // Return the Name or Description, choose whichever makes more sense for your application
-        return $this->Name; // or return $this->Description;
+        return $this->name; // or return $this->Description;
     }
 }

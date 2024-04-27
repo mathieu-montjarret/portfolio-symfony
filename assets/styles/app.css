@@ -179,6 +179,45 @@ nav ul li a {
 }
 
 
+/*     Guestbook     */
+
+/* Style pour les éléments de la pagination */
+.pagination .page-link {
+    border: none;
+    /* Supprime le bord */
+    color: grey;
+    /* Met le texte en noir */
+    background-color: transparent;
+    /* Aucun fond pour le lien */
+}
+
+/* Style pour l'élément de la page active */
+.pagination .page-item.active .page-link {
+    background-color: transparent;
+    /* Fond transparent pour le lien actif */
+    color: black;
+    /* Met le texte en bleu ou la couleur souhaitée pour la page active */
+}
+
+/* Style pour le hover */
+.pagination .page-link:hover {
+    color: grey;
+    /* Couleur du texte au survol */
+    text-decoration: underline;
+    /* Souligne le texte au survol, si désiré */
+    background-color: transparent;
+    /* Garde le fond transparent au survol */
+}
+
+/* Style pour supprimer l'effet de focus */
+.pagination .page-link:focus {
+    box-shadow: none;
+    /* Supprime l'ombre de la boîte pour Bootstrap */
+    outline: none;
+    /* Supprime le contour pour les navigateurs */
+}
+
+
 /*     Themes      */
 
 /* Create four equal columns that sits next to each other */
