@@ -45,7 +45,7 @@ class ServiceCrudController extends AbstractCrudController
         if ($pageName === Crud::PAGE_INDEX || $pageName === Crud::PAGE_NEW) {
             $fields[] = ImageField::new('photo')
                 ->setBasePath('/servicesPhotoFolder') // Assurez-vous que ce chemin est correct et accessible publiquement
-                ->setUploadDir('assets/servicesPhotoFolder') // Chemin relatif à votre répertoire 'public/'
+                ->setUploadDir('public/servicesPhotoFolder') // Chemin relatif à votre répertoire 'public/'
                 ->setUploadedFileNamePattern('[slug]-[year]-[month]-[day].[extension]');
         }
 

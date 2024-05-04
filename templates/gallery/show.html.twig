@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}ArtbyCaro | {{ gallery.name }}{% endblock %}
 
 {% block body %}
 
-<h1 class="text-center space-top">{{ gallery.name }}</h1>
+<h1 class="text-center space-top title-color">{{ gallery.name|first|upper ~ gallery.name|slice(1) }}</h1>
 
 <div class="container-fluid">
     <div class="row mt-5">
@@ -25,6 +25,47 @@
                 <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
             </div>
         {% endfor %}
+
+        {% for photo in photos|filter(photo => photo.placement == 1) %}
+            <p>{{ photo.placement }}: {{ photo.title }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}ArtbyCaro | {{ gallery.name }}{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center space-top title-color">{{ gallery.name|first|upper ~ gallery.name|slice(1) }}</h1>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            {% for photo in photos|filter(photo => photo.placement == 1) %}
+                <div class="mb-4">
+                    <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-4">
+            {% for photo in photos|filter(photo => photo.placement == 2) %}
+                <div class="mb-4">
+                    <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-4">
+            {% for photo in photos|filter(photo => photo.placement == 3) %}
+                <div class="mb-4">
+                    <img src="{{ asset(photoDirectory ~ '/' ~ photo.photo) }}" class="theme" alt="{{ photo.title }}">
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

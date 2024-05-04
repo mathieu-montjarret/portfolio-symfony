@@ -1,5 +1,3 @@
-import './bootstrap.js';
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".menu-icon").addEventListener("click", function () {
         const navUl = document.querySelector("nav ul");
@@ -37,6 +35,4 @@ window.addEventListener('scroll', onScroll);
  * This file will be included onto the page via the importmap() Twig function,
  * which should already be in your base.html.twig.
  */
-import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
