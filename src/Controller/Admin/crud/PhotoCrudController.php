@@ -36,7 +36,7 @@ class PhotoCrudController extends AbstractCrudController
         if ($pageName === Crud::PAGE_INDEX || $pageName === Crud::PAGE_NEW || $pageName === Crud::PAGE_EDIT) {
             $fields[] = ImageField::new('photo')
                 ->setBasePath('/photoFolder')
-                ->setUploadDir('assets/photoFolder')
+                ->setUploadDir('public/photoFolder')
                 ->setUploadedFileNamePattern('[slug]-[year]-[month]-[day].[extension]');
         }
         return $fields;

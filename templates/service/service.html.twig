@@ -4,18 +4,18 @@
 
 {% block body %}
 <section class="container space-top services-list">
-    <h1 class="font-weight-light text-center">Services</h1><br>
+    <h1 class="font-weight-light text-center title-color">Services</h1><br>
     <div class="row mt-4">
     {% for service in services %}
         <div class="col-md-4 mb-4 d-flex align-items-stretch">
             <div class="card h-100 w-100">
                     <img src="{{ asset(servicesPhotoDirectory ~'/'~ service.photo) }}" class="card-img-top img-fluid" alt="{{ service.title }}">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title my-3">{{ service.title }}</h5>
-                    <div class="card-text">{{ service.information }}</div>
+                    <h5 class="card-title my-3 title-color">{{ service.title }}</h5>
+                    <div class="card-text font-mulish">{{ service.information }}</div>
                     <p class="card-text mt-3"><strong>Prix:</strong> {{ service.price }}€</p>
                     <p class="card-text"><strong>Durée:</strong> {{ service.duration }} {{ service.duration <= 1 ? 'heure' : 'heures' }}</p>
-                    <a href="/services/{{ service.id }}" class="btn btn-primary mt-auto">En savoir plus</a>
+                    <a href="/services/{{ service.id }}" class="btn btn-color mt-auto font-mulish">En savoir plus</a>
                 </div>
             </div>
         </div>

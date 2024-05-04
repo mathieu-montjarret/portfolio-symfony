@@ -4,18 +4,18 @@
 
 {% block body %}
 <div class="space-top">
-    <h1 class="font-weight-light text-center my-5">Guestbook</h1>
+    <h1 class="font-weight-light text-center title-color my-5">Guestbook</h1>
 
     {% for comment in comments %}
-        <div class="container space-top">
+        <div class="container">
             <div class="{{ loop.index is odd ? 'row mb-4 justify-content-start' : 'row mb-4 justify-content-end' }}">
                 <div class="col-md-8 text-center">
                     <div class="comment-meta mt-5">
-                        <span class="blockquote-sign">&ldquo;</span><br>
-                        <strong>{{ comment.Name }}</strong>
-                        <span class="text-muted">{{ comment.CreatedAt|date('d/m/Y') }}</span>
+                        <span class="blockquote-sign font-philosopher fs-1">&ldquo;</span><br>
+                        <strong class="font-philosopher fs-4">{{ comment.Name }}</strong>
+                        <span class="font-philosopher fs-5">{{ comment.CreatedAt|date('d/m/Y') }}</span>
                     </div>
-                    <blockquote class="blockquote">
+                    <blockquote class="blockquote mt-4">
                         <p class="mb-0">{{ comment.Description }}</p>
                     </blockquote>
                 </div>

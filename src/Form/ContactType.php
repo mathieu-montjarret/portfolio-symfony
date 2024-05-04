@@ -18,11 +18,11 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('Firstname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'First Name',
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Last Name',
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Email', EmailType::class, [
@@ -30,19 +30,22 @@ class ContactType extends AbstractType
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Phone', TelType::class, [
-                'label' => 'Téléphone',
-                'required' => false, // Ce champ n'est pas obligatoire
+                'label' => 'Phone',
+                'required' => false, // This field is optional
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Subject', TextType::class, [
-                'label' => 'Sujet',
+                'label' => 'Subject',
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Message', TextareaType::class, [
                 'label' => 'Message',
                 'attr' => ['class' => 'form-control', 'rows' => 5]
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Envoyer']);
+            ->add('submit', SubmitType::class, [
+                'label' => 'Send',
+                'attr' => ['class' => 'btn-color']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
