@@ -13,9 +13,9 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title my-3 title-color">{{ service.title }}</h5>
                     <div class="card-text font-mulish">{{ service.information }}</div>
-                    <p class="card-text mt-3"><strong>Prix:</strong> {{ service.price }}€</p>
-                    <p class="card-text"><strong>Durée:</strong> {{ service.duration }} {{ service.duration <= 1 ? 'heure' : 'heures' }}</p>
-                    <a href="/services/{{ service.id }}" class="btn btn-color mt-auto font-mulish">En savoir plus</a>
+                    <p class="card-text mt-3"><strong>Price :</strong> {{ service.price }}€</p>
+                    <p class="card-text"><strong>Duration :</strong> {{ service.duration }} {{ service.duration <= 1 ? 'hour' : 'hours' }}</p>
+                    <a href="/services/{{ service.id }}" class="btn btn-color mt-auto font-mulish">Learn more</a>
                 </div>
             </div>
         </div>

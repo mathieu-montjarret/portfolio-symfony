@@ -29,16 +29,18 @@
     {% endfor %}
 
     {# Pagination #}
-    <div class="row">
-        <div class="col-12">
-            <div aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {% for i in 1..lastPage %}
-                        <li class="page-item{% if currentPage == i %} active{% endif %}">
-                            <a class="page-link" href="{{ path('app_guestbook', {'page': i}) }}">{{ i }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 px-0">
+                <div aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% for i in 1..lastPage %}
+                            <li class="page-item{% if currentPage == i %} active{% endif %}">
+                                <a class="page-link" href="{{ path('app_guestbook', {'page': i}) }}">{{ i }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
