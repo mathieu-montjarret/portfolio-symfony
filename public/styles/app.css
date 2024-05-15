@@ -1,6 +1,26 @@
 /*       Global      */
 
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
 .font-philosopher,
 h1,
 h2,
@@ -323,14 +343,30 @@ nav.nav-background ul {
     height: 100%;
 }
 
+/*     Footer       */
+
+.footer-details {
+    color: #BDA89B;
+}
+
+.footer-bg {
+    background-color: #333333;
+}
+
+.footer-link {
+    color: #FFDFCA;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+.footer-sn {
+    text-decoration: none;
+}
+
 
 /*     Themes      */
-
-/* Create four equal columns that sits next to each other */
-/* .part-g {
-      max-width: 33.3%;
-      padding: 0 4px;
-    }*/
 
 .theme {
     margin-top: 8px;

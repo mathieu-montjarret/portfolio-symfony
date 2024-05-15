@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -17,12 +19,23 @@ class Comment
     private int $id;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The name cannot be blank.")]
+    #[Assert\Length(
+        max: 50,
+        maxMessage: "The name cannot be longer than {{ limit }} characters."
+    )]
     private string $name;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "The description cannot be blank.")]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z0-9 .,!?\\-()\"\'\r\n]+$/",
+        message: "The description contains invalid characters."
+    )]
     private string $description;
 
     #[ORM\Column]
+    #[Assert\Type("\DateTimeImmutable")]
     private \DateTimeImmutable $createdAt;
 
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'Comment')]

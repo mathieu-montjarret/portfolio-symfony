@@ -6,6 +6,8 @@ use App\Repository\GalleryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: GalleryRepository::class)]
 class Gallery
@@ -16,12 +18,27 @@ class Gallery
     private int $id;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The gallery name is required.")]
+    #[Assert\Length(
+        max: 100,
+        maxMessage: "The gallery name cannot be longer than {{ limit }} characters."
+    )]
     private string $name;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The slug is required.")]
+    #[Assert\Length(
+        max: 100,
+        maxMessage: "The slug cannot be longer than {{ limit }} characters."
+    )]
+    #[Assert\Regex(
+        pattern: '/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
+        message: "The slug must be lowercase and may contain hyphens and numbers only."
+    )]
     private string $slug;
 
     #[ORM\Column]
+    #[Assert\Type(type: \DateTimeImmutable::class)]
     private \DateTimeImmutable $publishedAt;
 
     #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: 'gallery')]

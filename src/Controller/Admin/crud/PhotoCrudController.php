@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -25,7 +25,13 @@ class PhotoCrudController extends AbstractCrudController
     {
         $fields = [
             TextField::new('title'),
-            IntegerField::new('placement'),
+            ChoiceField::new('placement')
+                ->setLabel('Placement')
+                ->setChoices([
+                    '1' => 1,
+                    '2' => 2,
+                    '3' => 3
+                ]),
             AssociationField::new('gallery', 'Gallery Id')
                 ->setFormTypeOptions([
                     'by_reference' => true, // Permet de gérer correctement les collections Doctrine

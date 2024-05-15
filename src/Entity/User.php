@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -20,6 +21,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private int $id;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank]
+    #[Assert\Email(
+        message: 'The email "{{ value }}" is not a valid email.',
+        mode: "strict"
+    )]
     private string $Email;
 
     /**
@@ -32,21 +38,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: "The password cannot be blank.")]
+    #[Assert\Length(
+        min: 8,
+        max: 64,
+        minMessage: "Your password must be at least {{ limit }} characters long",
+        maxMessage: "Your password cannot be longer than {{ limit }} characters"
+    )]
+    #[Assert\Regex(
+        pattern: '/(?=.*[a-z])/',
+        message: "Your password must include at least one lowercase letter."
+    )]
+    #[Assert\Regex(
+        pattern: '/(?=.*[A-Z])/',
+        message: "Your password must include at least one uppercase letter."
+    )]
+    #[Assert\Regex(
+        pattern: '/(?=.*\d)/',
+        message: "Your password must include at least one number."
+    )]
+    #[Assert\Regex(
+        pattern: '/(?=.*[\W])/',
+        message: "Your password must include at least one special character."
+    )]
     private string $password;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        max: 50,
+        maxMessage: "Your first name cannot be longer than {{ limit }} characters"
+    )]
     private string $Firstname;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        max: 50,
+        maxMessage: "Your last name cannot be longer than {{ limit }} characters"
+    )]
     private string $Lastname;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        max: 30,
+        maxMessage: "Your username cannot be longer than {{ limit }} characters"
+    )]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9_\-\.]+$/',
+        message: 'Your username must only contain letters, numbers, dots, hyphens, and underscores.'
+    )]
     private string $Username;
 
     #[ORM\Column]
+    #[Assert\Type("\DateTimeImmutable")]
     private \DateTimeImmutable $CreatedAt;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\Type("\DateTimeImmutable")]
     private ?\DateTimeImmutable $UpdatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
