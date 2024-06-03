@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Service\CustomMailSender;
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Service\CustomMailSender;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

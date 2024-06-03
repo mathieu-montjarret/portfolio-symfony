@@ -16,7 +16,7 @@
                     {% set firstPhoto = gallery.photos.first %}
                     <a href="{{ path('gallery_show', {'slug': gallery.slug|url_encode}) }}" class="mb-4 h-100 w-100">
                         <div class="w-100 gallery-i d-flex align-items-center justify-content-center position-relative" style="background-image: url('{{ asset(photoDirectory ~ '/' ~ firstPhoto.photo) }}')">
-                            <p class="position-absolute gallery-theme text-center m-0 fs-5 font-philosopher">{{ gallery.name|upper }}</p>
+                            <p class="position-absolute gallery-theme text-center m-0 fs-5 font-philosopher">{{ (gallery.name|upper)|e }}</p>
                         </div>
                     </a>
                 </div>
