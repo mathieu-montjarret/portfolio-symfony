@@ -15,7 +15,7 @@ class HomeTest extends WebTestCase
         $this->assertResponseIsSuccessful();
 
         // Vérifie que le titre de la page est correct
-        $this->assertSelectorTextContains('title', 'ArtbyCaro | Accueil');
+        $this->assertSelectorTextContains('title', 'Portfolio | Accueil');
 
         // Vérifie que le texte "Welcome !" est présent dans un élément h1
         $this->assertSelectorTextContains('h1', 'Welcome !');

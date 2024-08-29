@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Art By Caro | Photographie{% endblock %}</title>
+    <title>{% block title %}Portfolio | Photographie{% endblock %}</title>
 
     {% block stylesheets %}
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
@@ -18,7 +18,7 @@
     <header class="position-absolute">
         <nav class="{{ app.request.attributes.get('_route') == 'app_home' ? 'nav-background' : '' }}">
             <div class="logo">
-                <img src="{{ asset('img/logo-artbycaro.png') }}" alt="Art By Caro - Logo">
+                <img src="{{ asset('img/logo-portfolio.png') }}" alt="Portfolio - Logo">
             </div>
             <div class="menu-icon nav-link {% if app.request.attributes.get('_route') == 'app_home' %}nav-home home-background{% endif %}">
                 <i class="fa fa-bars fa-2x"></i>
@@ -48,7 +48,7 @@
     {% if app.request.attributes.get('_route') != 'app_home' %}
         <footer class="footer py-3 footer-bg space-top">
             <div class="container text-center">
-                <p class="mb-0 footer-details">&copy; {{ "now"|date("Y") }} ArtbyCaro. All rights reserved.</p>
+                <p class="mb-0 footer-details">&copy; {{ "now"|date("Y") }} All rights reserved.</p>
                 <p class="mb-0 footer-details">Website made with <span style="color: red;">&#x2764;</span> by Mathieu Montjarret</p>
                 <div class="d-flex justify-content-center mt-3">
                     <a href="{{ path('app_legal_notice') }}" class="mx-2 footer-link">Legal Notice</a>

@@ -16,7 +16,7 @@ class CustomMailSender
                 [
                     'From' => [
                         'Email' => "mathieu.montjarret@icloud.com",
-                        'Name' => "Art By Caro"
+                        'Name' => "Portfolio"
                     ],
                     'To' => [
                         [
